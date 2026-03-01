@@ -1,0 +1,366 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =============================================
+   IYAWO MI APP — Romantic Dark Design System
+   ============================================= */
+
+/* Google Fonts are loaded in index.html via <link> tags */
+/* Fallback font stacks defined here */
+
+@layer base {
+  :root {
+    --radius: 1rem;
+
+    /* ── Night Romance Palette ── */
+    /* Background: deep midnight wine */
+    --background: 0.10 0.025 330;
+    --foreground: 0.97 0.01 60;
+
+    /* Card: dark burgundy-tinted glass */
+    --card: 0.13 0.03 330;
+    --card-foreground: 0.95 0.015 60;
+
+    /* Popover */
+    --popover: 0.13 0.03 330;
+    --popover-foreground: 0.95 0.015 60;
+
+    /* Primary: rose gold */
+    --primary: 0.72 0.14 25;
+    --primary-foreground: 0.10 0.02 25;
+
+    /* Secondary: deep muted mauve */
+    --secondary: 0.20 0.04 330;
+    --secondary-foreground: 0.90 0.02 60;
+
+    /* Muted */
+    --muted: 0.18 0.03 330;
+    --muted-foreground: 0.65 0.03 330;
+
+    /* Accent: warm coral */
+    --accent: 0.68 0.16 20;
+    --accent-foreground: 0.10 0.02 20;
+
+    /* Destructive */
+    --destructive: 0.65 0.22 25;
+    --destructive-foreground: 0.97 0 0;
+
+    /* Border: soft glow rose */
+    --border: 0.28 0.06 330;
+    --input: 0.22 0.04 330;
+    --ring: 0.72 0.14 25;
+
+    /* Charts */
+    --chart-1: 0.72 0.14 25;
+    --chart-2: 0.68 0.16 20;
+    --chart-3: 0.55 0.18 350;
+    --chart-4: 0.80 0.12 40;
+    --chart-5: 0.50 0.14 300;
+
+    /* Sidebar */
+    --sidebar: 0.12 0.03 330;
+    --sidebar-foreground: 0.90 0.015 60;
+    --sidebar-primary: 0.72 0.14 25;
+    --sidebar-primary-foreground: 0.10 0.02 25;
+    --sidebar-accent: 0.20 0.04 330;
+    --sidebar-accent-foreground: 0.90 0.02 60;
+    --sidebar-border: 0.25 0.05 330;
+    --sidebar-ring: 0.72 0.14 25;
+
+    /* Custom Romantic Tokens */
+    --rose-gold: 0.72 0.14 25;
+    --warm-coral: 0.68 0.16 20;
+    --crimson-heart: 0.60 0.22 15;
+    --midnight-deep: 0.08 0.02 300;
+    --petal-glow: 0.85 0.08 30;
+    --blush-light: 0.88 0.06 20;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Outfit", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+}
+
+/* ── Romantic Typography ── */
+.font-display {
+  font-family: "Fraunces", serif;
+}
+
+.font-serif-elegant {
+  font-family: "Instrument Serif", serif;
+}
+
+/* ── Rose Gold Gradient ── */
+.gradient-rose-gold {
+  background: linear-gradient(
+    135deg,
+    oklch(0.72 0.14 25) 0%,
+    oklch(0.68 0.16 20) 50%,
+    oklch(0.60 0.18 10) 100%
+  );
+}
+
+.gradient-rose-gold-text {
+  background: linear-gradient(
+    135deg,
+    oklch(0.85 0.14 30) 0%,
+    oklch(0.72 0.18 20) 50%,
+    oklch(0.80 0.12 40) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Glassmorphism Card ── */
+.glass-card {
+  background: oklch(0.12 0.035 330 / 0.80);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid oklch(0.42 0.10 25 / 0.28);
+  box-shadow:
+    0 2px 1px oklch(0.80 0.08 30 / 0.06) inset,
+    0 -1px 1px oklch(0 0 0 / 0.20) inset,
+    0 8px 32px oklch(0.55 0.16 15 / 0.10),
+    0 2px 8px oklch(0 0 0 / 0.35);
+}
+
+.glass-card-hover {
+  transition: box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.glass-card-hover:hover {
+  border-color: oklch(0.62 0.14 25 / 0.45);
+  box-shadow:
+    0 2px 1px oklch(0.80 0.08 30 / 0.08) inset,
+    0 -1px 1px oklch(0 0 0 / 0.20) inset,
+    0 16px 48px oklch(0.60 0.18 15 / 0.18),
+    0 4px 12px oklch(0 0 0 / 0.40);
+}
+
+/* ── Rose Gold Button ── */
+.btn-rose-gold {
+  background: linear-gradient(135deg, oklch(0.76 0.14 28) 0%, oklch(0.64 0.20 14) 55%, oklch(0.58 0.22 8) 100%);
+  color: oklch(0.97 0.01 60);
+  border: 1px solid oklch(0.75 0.14 28 / 0.35);
+  transition: all 0.22s ease;
+  box-shadow:
+    0 4px 20px oklch(0.62 0.20 15 / 0.40),
+    0 1px 0 oklch(0.85 0.10 35 / 0.25) inset,
+    0 -1px 0 oklch(0.40 0.12 10 / 0.30) inset;
+}
+
+.btn-rose-gold:hover {
+  background: linear-gradient(135deg, oklch(0.80 0.14 28) 0%, oklch(0.70 0.20 14) 55%, oklch(0.62 0.22 8) 100%);
+  box-shadow:
+    0 8px 32px oklch(0.62 0.20 15 / 0.55),
+    0 1px 0 oklch(0.90 0.08 35 / 0.30) inset,
+    0 -1px 0 oklch(0.40 0.12 10 / 0.30) inset;
+  transform: translateY(-1px);
+}
+
+.btn-ghost-rose {
+  background: oklch(0.95 0.01 60 / 0.06);
+  color: oklch(0.84 0.08 35);
+  border: 1px solid oklch(0.68 0.10 28 / 0.38);
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.btn-ghost-rose:hover {
+  background: oklch(0.95 0.01 60 / 0.10);
+  border-color: oklch(0.72 0.12 28 / 0.55);
+}
+
+/* ── Floating Hearts Animation ── */
+@keyframes float-up {
+  0% {
+    transform: translateY(0) scale(1) rotate(0deg);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-40vh) scale(1.1) rotate(10deg);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-90vh) scale(0.8) rotate(-5deg);
+    opacity: 0;
+  }
+}
+
+@keyframes float-sway {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(20px); }
+}
+
+@keyframes pulse-heart {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heart-burst {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.4); }
+  60% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease forwards;
+}
+
+.animate-heart-burst {
+  animation: heart-burst 0.4s ease;
+}
+
+.animate-pulse-heart {
+  animation: pulse-heart 2s ease-in-out infinite;
+}
+
+/* ── Floating Particle Hearts ── */
+.heart-particle {
+  position: absolute;
+  pointer-events: none;
+  animation: float-up linear infinite;
+  color: oklch(0.70 0.18 15);
+}
+
+/* ── Scrollbar Styling ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: oklch(0.10 0.025 330);
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(0.40 0.08 25);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.55 0.12 25);
+}
+
+/* ── Page Transition ── */
+.page-transition {
+  animation: fade-in-up 0.4s ease forwards;
+}
+
+/* ── Input Romantic Styling ── */
+.input-romantic {
+  background: oklch(0.15 0.03 330 / 0.8);
+  border: 1px solid oklch(0.35 0.07 330);
+  color: oklch(0.95 0.01 60);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  font-family: "Outfit", sans-serif;
+}
+
+.input-romantic:focus {
+  outline: none;
+  border-color: oklch(0.72 0.14 25);
+  box-shadow: 0 0 0 3px oklch(0.72 0.14 25 / 0.20);
+}
+
+.input-romantic::placeholder {
+  color: oklch(0.50 0.03 330);
+}
+
+/* ── Mesh Background ── */
+.mesh-bg {
+  background:
+    radial-gradient(ellipse at 15% 15%, oklch(0.28 0.08 330 / 0.35) 0%, transparent 48%),
+    radial-gradient(ellipse at 85% 80%, oklch(0.22 0.07 20 / 0.28) 0%, transparent 48%),
+    radial-gradient(ellipse at 50% 50%, oklch(0.14 0.04 300 / 0.18) 0%, transparent 65%),
+    oklch(0.09 0.025 330);
+}
+
+/* ── Grain overlay — luxury tactile texture ── */
+.grain-overlay::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  background-repeat: repeat;
+  z-index: 9999;
+  mix-blend-mode: overlay;
+}
+
+/* ── Glow Effect ── */
+.glow-rose {
+  box-shadow: 0 0 30px oklch(0.65 0.18 20 / 0.25), 0 0 60px oklch(0.65 0.18 20 / 0.10);
+}
+
+/* ── Photo Card ── */
+.photo-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.25rem;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Invite Code Display ── */
+.invite-code {
+  font-family: "Fraunces", serif;
+  letter-spacing: 0.3em;
+  font-size: 2rem;
+  font-weight: 700;
+  color: oklch(0.85 0.14 30);
+  text-shadow: 0 0 20px oklch(0.72 0.14 25 / 0.6);
+}
+
+/* ── Mobile Max Width Container ── */
+.app-container {
+  max-width: 430px;
+  margin: 0 auto;
+  min-height: 100dvh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Status Bar Safe Area ── */
+.safe-top {
+  padding-top: env(safe-area-inset-top, 16px);
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 16px);
+}
